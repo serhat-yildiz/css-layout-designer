@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Editor - CSS Layout Designer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="editor-container">
+        <header class="editor-header">
+            <h1><i class="fas fa-arrows-alt"></i> Flexbox Editor</h1>
+            <div class="actions">
+                <button id="copyCSS" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-copy"></i> Copy CSS Code
+                </button>
+                <button id="saveLayout" class="btn btn-success btn-sm">
+                    <i class="fas fa-save"></i> Save Layout
+                </button>
+                <a href="{{ url_for('index') }}" class="btn btn-sm">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </div>
+        </header>
+
+        <aside class="editor-sidebar">
+            <div class="control-group">
+                <div class="control-header">
+                    <span>Flex Container</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="control-body">
+                    <div class="form-group">
+                        <label for="flex-direction">flex-direction:</label>
+                        <select id="flex-direction" class="form-control">
+                            <option value="row" selected>row</option>
+                            <option value="row-reverse">row-reverse</option>
+                            <option value="column">column</option>
+                            <option value="column-reverse">column-reverse</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="flex-wrap">flex-wrap:</label>
+                        <select id="flex-wrap" class="form-control">
+                            <option value="nowrap" selected>nowrap</option>
+                            <option value="wrap">wrap</option>
+                            <option value="wrap-reverse">wrap-reverse</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="justify-content">justify-content:</label>
+                        <select id="justify-content" class="form-control">
+                            <option value="flex-start">flex-start</option>
+                            <option value="flex-end">flex-end</option>
+                            <option value="center" selected>center</option>
+                            <option value="space-between">space-between</option>
+                            <option value="space-around">space-around</option>
+                            <option value="space-evenly">space-evenly</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="align-items">align-items:</label>
+                        <select id="align-items" class="form-control">
+                            <option value="stretch">stretch</option>
+                            <option value="flex-start">flex-start</option>
+                            <option value="flex-end">flex-end</option>
+                            <option value="center" selected>center</option>
+                            <option value="baseline">baseline</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="align-content">align-content:</label>
+                        <select id="align-content" class="form-control">
+                            <option value="stretch">stretch</option>
+                            <option value="flex-start">flex-start</option>
+                            <option value="flex-end">flex-end</option>
+                            <option value="center" selected>center</option>
+                            <option value="space-between">space-between</option>
+                            <option value="space-around">space-around</option>
+                            <option value="space-evenly">space-evenly</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gap">gap:</label>
+                        <input type="text" id="gap" class="form-control" value="10px" placeholder="Ex: 10px">
+                    </div>
+                    <div class="form-group">
+                        <label for="container-height">container height:</label>
+                        <input type="text" id="container-height" class="form-control" value="400px" placeholder="Ex: 400px">
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="control-header">
+                    <span>Flex Items</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="control-body">
+                    <div class="btn-group">
+                        <button id="addItem" class="btn btn-sm">
+                            <i class="fas fa-plus"></i> Add Item
+                        </button>
+                        <button id="clearItems" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+
+                    <div id="itemList" class="item-list">
+                        <!-- Items will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="itemProperties" class="control-group" style="display: none;">
+                <div class="control-header">
+                    <span>Item Properties</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="control-body">
+                    <div class="form-group">
+                        <label for="item-content">Content:</label>
+                        <input type="text" id="item-content" class="form-control" value="Flex Item">
+                    </div>
+                    <div class="form-group">
+                        <label for="flex-grow">flex-grow:</label>
+                        <input type="number" id="flex-grow" class="form-control" value="0" min="0" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="flex-shrink">flex-shrink:</label>
+                        <input type="number" id="flex-shrink" class="form-control" value="1" min="0" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="flex-basis">flex-basis:</label>
+                        <input type="text" id="flex-basis" class="form-control" value="auto" placeholder="Ex: auto, 100px, 50%">
+                    </div>
+                    <div class="form-group">
+                        <label for="align-self">align-self:</label>
+                        <select id="align-self" class="form-control">
+                            <option value="auto" selected>auto</option>
+                            <option value="flex-start">flex-start</option>
+                            <option value="flex-end">flex-end</option>
+                            <option value="center">center</option>
+                            <option value="stretch">stretch</option>
+                            <option value="baseline">baseline</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="order">order:</label>
+                        <input type="number" id="order" class="form-control" value="0" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="item-background">Background Color:</label>
+                        <input type="color" id="item-background" class="form-control" value="#2ecc71">
+                    </div>
+                    <div class="form-group">
+                        <label for="item-width">width:</label>
+                        <input type="text" id="item-width" class="form-control" value="auto" placeholder="Ex: auto, 100px, 50%">
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="editor-main">
+            <div class="preview-container">
+                <div id="flexContainer" class="flex-preview">
+                    <!-- Flex items will be added here -->
+                </div>
+            </div>
+            <div class="code-container">
+                <pre id="cssCode">/* Your CSS code will appear here */</pre>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/flexbox-editor.js') }}"></script>
+</body>
+</html> 

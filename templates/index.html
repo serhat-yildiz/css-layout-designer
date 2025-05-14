@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layout Designer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>CSS Layout Designer</h1>
+            <p>Visual CSS Grid and Flexbox designer for frontend developers</p>
+        </header>
+
+        <main class="editor-selection">
+            <div class="card grid-card">
+                <div class="card-header">
+                    <i class="fas fa-th-large"></i>
+                    <h2>CSS Grid Editor</h2>
+                </div>
+                <div class="card-body">
+                    <p>Create powerful two-dimensional layouts with CSS Grid. Perfect choice for complex layouts!</p>
+                    <ul>
+                        <li>Create two-dimensional layouts</li>
+                        <li>Place elements precisely</li>
+                        <li>Create responsive designs</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('grid_editor') }}" class="btn">Open Grid Editor</a>
+                </div>
+            </div>
+
+            <div class="card flexbox-card">
+                <div class="card-header">
+                    <i class="fas fa-arrows-alt"></i>
+                    <h2>Flexbox Editor</h2>
+                </div>
+                <div class="card-body">
+                    <p>Create flexible one-dimensional layouts with Flexbox. Ideal for simple, dynamic layouts!</p>
+                    <ul>
+                        <li>Create one-dimensional layouts</li>
+                        <li>Align content easily</li>
+                        <li>Create flexible designs</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('flexbox_editor') }}" class="btn">Open Flexbox Editor</a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>CSS Layout Designer © 2023 - Productivity tool for frontend developers</p>
+            <p>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout" target="_blank">Grid Documentation</a> | 
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout" target="_blank">Flexbox Documentation</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html> 
