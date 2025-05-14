@@ -337,6 +337,43 @@ body {
     width: 100%;
 }
 
+/* Developer Info Section */
+.developer-info {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dark-mode .developer-info {
+    border-top-color: var(--dark-border);
+}
+
+.developer-info h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.developer-info p {
+    margin-bottom: 0.5rem;
+}
+
+.developer-info a {
+    color: var(--primary-color);
+    transition: var(--transition);
+    text-decoration: none;
+    margin: 0 0.3rem;
+}
+
+.developer-info a:hover {
+    color: var(--secondary-color);
+}
+
+.developer-info i {
+    margin-right: 0.3rem;
+}
+
 /* Editör Sayfası Ortak Stilleri */
 .editor-container {
     display: grid;
