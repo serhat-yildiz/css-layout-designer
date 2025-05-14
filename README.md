@@ -84,11 +84,3 @@ Distributed under the MIT License.
 * Portfolio: [serhatdev.vercel.app](https://serhatdev.vercel.app/)
 * Blog: [serhatdev.vercel.app/blog](https://serhatdev.vercel.app/blog)
 * LinkedIn: [linkedin.com/in/serhat-yldz](https://www.linkedin.com/in/serhat-yldz/)
-
-### Other Projects:
-* Face Recognition - Python tabanlı yüz tanıma API'si
-* NextJs ve MongoDB Full Stack Yemek Sipariş Uygulaması
-* PhotoSearch - React tabanlı Unsplash görsel arama uygulaması
-* Pokemon Search API
-* GraphQL API
-* Workout Timer 
